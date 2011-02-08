@@ -1,0 +1,19 @@
+l. 4791
+
+Tipos funcionam como mapas
+
+Você pode prototipar como mapa e depois converter em tipos.
+
+Pode substituir tipos como mapas nos seus testes como stubs ou mocks.
+
+Construimos codigo nativo para a JVM sem Java.
+Pode ser usado para subclassear tipos Java e implementar interfaces.
+
+= Macros =
+l. 4798
+
+How to extend Clojure itself
+
+ 
+
+
