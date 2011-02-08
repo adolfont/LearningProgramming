@@ -14,6 +14,112 @@ l. 4798
 
 How to extend Clojure itself
 
- 
+We can't implement "unless" as a function.
+Most languages execute parameters first.
+
+Reader macros:
+- ; (comment)
+- ' (quote)
+- # (anonymous function)
+
+Macro expansion let you treat code like lists.
+
+We changed the base definition of the language.
+We are adding our own control structure (with unless).
+
+Macro expansion is perhaps the most powerful feature of Lisp.
+
+Day 2 Self-Study
+
+
+1) When, ->
+http://clojure.org/macros
+http://www.slideshare.net/pcalcado/lisp-macros-in-20-minutes-featuring-clojure-presentation
+
+2) An example of lazy sequence:
+
+http://www.ibm.com/developerworks/opensource/library/os-eclipse-clojure/
+
+(defn lazy-seq-fibo 
+    ([] 
+        (concat [0 1] (lazy-seq-fibo 0 1))) 
+    ([a b] 
+        (let [n (+ a b)] 
+            (lazy-seq 
+                (cons n (lazy-seq-fibo b n))))))
+            
+(take 10 (lazy-seq-fibo))
+
+3) defrecord is stable
+   protocols not yet stable
+
+4) 
+(defmacro unless [test thenbody elsebody]
+  (list 'if (list 'not test) thenbody elsebody))
+
+
+(defprotocol Formula
+  (conectivo [c]))
+
+(defrecord FormulaAtomica [list]
+  Formula
+  (conectivo [_] (FormulaAtomica. (first list)))
+  Object (toString [this] (str "[" (first this) "]")))
+
+====
+Refs and Atoms - examples
+
+user> (def x "bla")
+#'user/x
+user> (alter x str ": blabla")
+; Evaluation aborted.
+user> (def x (ref "bla"))
+#'user/x
+user> (deref x)
+"bla"
+user> @x
+"bla"
+user> (alter x str ": blabla")
+; Evaluation aborted.
+user> (dosync (alter x str ": blabla"))
+"bla: blabla"
+user> x
+#<Ref@f53d61: "bla: blabla">
+user> @x
+"bla: blabla"
+user> (dosync (ref-set x "bla bla bla"))
+"bla bla bla"
+user> (conj [] {:title "bla" :author "ble"})
+[{:title "bla", :author "ble"}]
+user> (defn create
+	  []
+	(atom {}))
+#'user/create
+user> (defn get
+	  [cache key]
+	  (@cache key))
+WARNING: get already refers to: #'clojure.core/get in namespace: user, being replaced by: #'user/get
+#'user/get
+user> (defn put
+	  ([cache value-map]
+		  (swap! cache merge value-map))
+	([cache key value]
+		(swap! cache assoc key value)))
+#'user/put
+user> (def ac (create))
+#'user/ac
+user> (put ac :quote "I'm your father, Luke.")
+{:quote "I'm your father, Luke."}
+user> (println (str "Cached item: " (get ac :quote)))
+Cached item: I'm your father, Luke.
+nil
+user> (put ac :father "Darth")
+{:father "Darth", :quote "I'm your father, Luke."}
+user> (println (str "Cached item: " (get ac :father)))
+Cached item: Darth
+nil
+
+
+
 
 
