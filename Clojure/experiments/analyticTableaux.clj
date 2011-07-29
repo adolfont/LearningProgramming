@@ -23,7 +23,7 @@
        (= sign premiseSign)
        (= connective premiseConnective)
        )
-    (vector
+    (list
      (vector leftConclusionSign left)
      (vector rightConclusionSign right)
      )
@@ -38,7 +38,7 @@
        (= sign premiseSign)
        (= connective premiseConnective)
        )
-    (vector
+    (list
      (vector conclusionSign formula)
      )
     'nil)
@@ -53,8 +53,8 @@
        (= connective premiseConnective)
        )
     (list 
-     (vector (vector leftConclusionSign left))
-     (vector (vector rightConclusionSign right))
+     (list (vector leftConclusionSign left))
+     (list (vector rightConclusionSign right))
      )
     'nil)
  )
@@ -109,3 +109,8 @@
   [signedFormula] 
   (apply (OnePremiseTwoBranchedConclusionsSignedRule 'T '-> 'F 'T)  signedFormula))
 
+
+(defn applyAllRules 
+   "Applies all rules to a branch and returns the resulting branch" 
+   [branch]
+   branch)
