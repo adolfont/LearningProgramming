@@ -4,7 +4,7 @@
 
 (use 'clojure.test)
 
-(load-file "formula.clj")
+(load-file "analyticTableaux.clj")
 
 (def t-and-example-1 '[T [& A B]])
 (def t-and-example-2 '[T [& C D]])
