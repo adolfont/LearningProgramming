@@ -7,7 +7,7 @@
 (load-file "analyticTableaux.clj")
 
 (def f-or-example-1 '[F [| A B]])
-(def f-implies-example-1 '[F [-> A B]])
+(def f-implies-example '[F [-> A B]])
 (def t-not-example '[T [! A]])
 (def f-not-example '[F [! A]])
 (def f-and-example '[F [& A B]])
@@ -23,10 +23,15 @@
 (def t-and-example-2 '[T [& C D]])
 (def result-t-and-example-2 '([T C] [T D]) )
 
-(deftest TAnd-test
+(deftest TAnd-applied-test
   (is (= result-t-and-example-1 (TAnd t-and-example-1)))
   (is (= result-t-and-example-2 (TAnd t-and-example-2)))
   )
+
+(deftest TAnd-not-applied-test
+  (is (= f-implies-example (TAnd f-implies-example)))
+  )
+
 
 (deftest FOr-test
   (is (= '([F A] [F B]) (FOr f-or-example-1)))
@@ -34,21 +39,30 @@
 
 
 (deftest FImplies-test
-  (is (= '([T A] [F B]) (FImplies f-implies-example-1)))
+  (is (= '([T A] [F B]) (FImplies f-implies-example)))
   )
 
 ;; one premise one conclusion rules
-(deftest TNot-test
+(deftest TNot-applied-test
   (is (= '([F A]) (TNot t-not-example)))
   )
+
+(deftest TNot-not-applied-test
+  (is (= '[F [! A]] (TNot f-not-example)))
+  )
+
 
 (deftest FNot-test
   (is (= '([T A]) (FNot f-not-example)))
   )
 
 ;; one premise two branches rules
-(deftest FAnd-test
+(deftest FAnd-applied-test
   (is (= '(([F A]) ([F B])) (FAnd f-and-example)))
+  )
+
+(deftest FAnd-not-applied-test
+  (is (= '[T [& A B]] (FAnd t-and-example-1)))
   )
 
 (deftest TOr-test
@@ -60,12 +74,12 @@
   )
 
 
-;;(def sample-branch-1 (list t-and-example-1 t-and-example-2))
-;;(def result-sample-branch-1 (list result-t-and-example-1 result-t-and-example-2))
+(def sample-branch-1 (list t-and-example-1 t-and-example-2))
+(def result-sample-branch-1 (concat result-t-and-example-1 result-t-and-example-2))
 
 ;;applying the rules on a branch
-;;(deftest applyRulesTest
-  ;;(is (= result-sample-branch-1 (applyAllRules sample-branch-1))))
+(deftest applyRulesTest
+  (is (= result-sample-branch-1 (applyAllRules sample-branch-1))))
 
 
 

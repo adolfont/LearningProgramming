@@ -19,6 +19,7 @@
 (defn OnePremiseTwoConclusionsSignedRule
   [premiseSign premiseConnective leftConclusionSign rightConclusionSign]
   (fn [sign [connective left right]] 
+    (def wholeFormula [sign [connective left right]])
     (if (and
        (= sign premiseSign)
        (= connective premiseConnective)
@@ -27,13 +28,14 @@
      (vector leftConclusionSign left)
      (vector rightConclusionSign right)
      )
-    'nil)
+    wholeFormula)
  )
 )
 
 (defn OnePremiseOneConclusionSignedRule
   [premiseSign premiseConnective conclusionSign]
   (fn [sign [connective formula]] 
+   (def wholeFormula [sign [connective formula]]) 
    (if (and
        (= sign premiseSign)
        (= connective premiseConnective)
@@ -41,13 +43,14 @@
     (list
      (vector conclusionSign formula)
      )
-    'nil)
+    wholeFormula)
  )
 )
 
 (defn OnePremiseTwoBranchedConclusionsSignedRule
   [premiseSign premiseConnective leftConclusionSign rightConclusionSign]
   (fn [sign [connective left right]] 
+    (def wholeFormula [sign [connective left right]])
     (if (and
        (= sign premiseSign)
        (= connective premiseConnective)
@@ -56,7 +59,7 @@
      (list (vector leftConclusionSign left))
      (list (vector rightConclusionSign right))
      )
-    'nil)
+    wholeFormula)
  )
 )
 
@@ -113,4 +116,4 @@
 (defn applyAllRules 
    "Applies all rules to a branch and returns the resulting branch" 
    [branch]
-   branch)
+   (apply concat (map TAnd branch)))
