@@ -14,40 +14,6 @@
   (first (second formula))
 )
 
-(defn TAnd
-  "Applies the T-AND rule to the formula.
-   Example: T A&B ==> T A, T B
-   "
-  [[sign [connective left right]]]
-  (if (and
-       (= sign 'T)
-       (= connective '&)
-       )
-    (vector
-     (vector 'T left)
-     (vector 'T right)
-     )
-    'nil)
-  )
-
-(comment
-(defn FOr
-  "Applies the F-OR rule to the formula.
-   Example: F A|B ==> F A, F B
-   "
-  [[sign [connective left right]]]
-  (if (and
-       (= sign 'F)
-       (= connective '|)
-       )
-    (vector
-     (vector 'F left)
-     (vector 'F right)
-     )
-    'nil)
-  )
-)
-
 (defn OnePremiseTwoConclusionsSignedRule
   [premiseSign premiseConnective leftConclusionSign rightConclusionSign]
   (fn [sign [connective left right]] (if (and
@@ -62,5 +28,18 @@
  )
 )
 
-(defn FOr [signedFormula] (apply (OnePremiseTwoConclusionsSignedRule 'F '| 'F 'F)  signedFormula))
+(defn TAnd
+  "Applies the T-AND rule to the formula.
+   Example: T A&B ==> T A, T B
+   "
+   [signedFormula] 
+   (apply (OnePremiseTwoConclusionsSignedRule 'T '& 'T 'T)  signedFormula))
+
+
+(defn FOr 
+  "Applies the F-OR rule to the formula.
+   Example: F A|B ==> F A, F B
+   "
+  [signedFormula] 
+  (apply (OnePremiseTwoConclusionsSignedRule 'F '| 'F 'F)  signedFormula))
 
