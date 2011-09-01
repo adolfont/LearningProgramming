@@ -1,3 +1,12 @@
+%% Implementation of Analytic Tableau Rules
+%% Adolfo Neto
+%% September 1th, 2011
+
+%% How to run this in Linux?
+% 1. Install Erlang
+% 2. In a shell issue the following command:
+%   erlc analytic_tableau.erl ; erl  -noshell -s analytic_tableau start -s init stop
+
 -module(analytic_tableau).
 -export([t_not/1]).
 -export([f_not/1]).
@@ -11,8 +20,6 @@
 -export([t_implies/1]).
 
 -export([start/0]).
-
-%% erlc analytic_tableau.erl ; erl  -noshell -s analytic_tableau start -s init stop
 
 t_not({"t", {"not", X}}) -> [ {"f", X} ];
 t_not(Y) -> [Y].
