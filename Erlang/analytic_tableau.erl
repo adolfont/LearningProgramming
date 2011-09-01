@@ -42,7 +42,7 @@ f_and(Y) -> [Y].
 t_or({"t", {"or", [X, Y]}}) -> [ [ {"t", X} ], [{"t", Y} ] ];
 t_or(Y) -> [Y].
 
-t_implies({"t", {"implies", [X, Y]}}) -> [ [ {"t", X} ], [{"f", Y} ] ];
+t_implies({"t", {"implies", [X, Y]}}) -> [ [ {"f", X} ], [{"t", Y} ] ];
 t_implies(Y) -> [Y].
 
 
