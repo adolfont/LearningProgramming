@@ -1,7 +1,7 @@
 Instructions for running my Unity test harness tests
+====================
 Adolfo Neto
 September 20th, 2011
-====================
 
 These tests are based on the tests presented by James Grenning in his book "Test Driven Development for Embedded C" (http://pragprog.com/book/jgade/test-driven-development-for-embedded-c).
 
