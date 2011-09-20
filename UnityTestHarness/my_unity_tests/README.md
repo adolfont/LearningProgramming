@@ -1,7 +1,7 @@
 Instructions for running my Unity test harness tests
 Adolfo Neto
 September 20th, 2011
-
+====================
 
 These tests are based on the tests presented by James Grenning in his book "Test Driven Development for Embedded C" (http://pragprog.com/book/jgade/test-driven-development-for-embedded-c).
 
@@ -10,7 +10,7 @@ These tests are based on the tests presented by James Grenning in his book "Test
 3. Run the following
    $ make
 
-The result should be something like that:
+The result should be something like:
 
 rm -f build/*.o ; rm -f stdio.out 
 gcc -Isrc -I/home/adolfo/Dropbox/code/tdd_embedded_c/unity/src -I/home/adolfo/Dropbox/code/tdd_embedded_c/unity/extras/fixture/src -DTEST /home/adolfo/Dropbox/code/tdd_embedded_c/unity/src/unity.c test/stdio/SprintfTest.c test/stdio/no_ruby/SprintfTest_Runner.c -o stdio.out
