@@ -31,9 +31,10 @@ The result should be something like:
 
 
 This was tested with:
- - Unity 2_0_113
- - gcc version 4.4.5 (Ubuntu/Linaro 4.4.4-14ubuntu5) 
- - Linux 2.6.35-30-generic #59-Ubuntu SMP Tue Aug 30 19:00:03 UTC 2011 x86_64 GNU/Linux
+
+* Unity 2_0_113
+* gcc version 4.4.5 (Ubuntu/Linaro 4.4.4-14ubuntu5) 
+* Linux 2.6.35-30-generic #59-Ubuntu SMP Tue Aug 30 19:00:03 UTC 2011 x86_64 GNU/Linux
 
  
 
