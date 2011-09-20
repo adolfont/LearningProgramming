@@ -1,7 +1,8 @@
 Instructions for running my Unity test harness tests
 ====================
-Adolfo Neto
-September 20th, 2011
+
+### Adolfo Neto
+### September 20th, 2011
 
 These tests are based on the tests presented by James Grenning in his book "Test Driven Development for Embedded C" (http://pragprog.com/book/jgade/test-driven-development-for-embedded-c).
 
@@ -12,14 +13,21 @@ These tests are based on the tests presented by James Grenning in his book "Test
 
 The result should be something like:
 
-rm -f build/*.o ; rm -f stdio.out 
-gcc -Isrc -I/home/adolfo/Dropbox/code/tdd_embedded_c/unity/src -I/home/adolfo/Dropbox/code/tdd_embedded_c/unity/extras/fixture/src -DTEST /home/adolfo/Dropbox/code/tdd_embedded_c/unity/src/unity.c test/stdio/SprintfTest.c test/stdio/no_ruby/SprintfTest_Runner.c -o stdio.out
-stdio.out
-test/stdio/SprintfTest.c:32:test_string_hey_is_as_expected:PASS
-test/stdio/SprintfTest.c:37:test_string_hello_is_as_expected:PASS
------------------------
-2 Tests 0 Failures 0 Ignored
-OK
+> rm -f build/*.o ; rm -f stdio.out 
+
+> gcc -Isrc -I/home/adolfo/Dropbox/code/tdd_embedded_c/unity/src -I/home/adolfo/Dropbox/code/tdd_embedded_c/unity/extras/fixture/src -DTEST /home/adolfo/Dropbox/code/tdd_embedded_c/unity/src/unity.c test/stdio/SprintfTest.c test/stdio/no_ruby/SprintfTest_Runner.c -o stdio.out
+
+> stdio.out
+
+> test/stdio/SprintfTest.c:32:test_string_hey_is_as_expected:PASS
+
+> test/stdio/SprintfTest.c:37:test_string_hello_is_as_expected:PASS
+
+> -----------------------
+
+> 2 Tests 0 Failures 0 Ignored
+
+> OK
 
 
 This was tested with:
