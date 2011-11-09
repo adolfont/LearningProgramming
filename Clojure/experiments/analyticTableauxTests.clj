@@ -2,9 +2,10 @@
 ;; Adolfo Neto, 2011
 ;; 03/02/2011, 29/07/2011
 
-(use 'clojure.test)
 
-(load-file "analyticTableaux.clj")
+(ns test
+  (:use analyticTableaux)
+  (:use clojure.test))
 
 (def f-or-example-1 '[F [| A B]])
 (def f-implies-example '[F [-> A B]])
@@ -22,6 +23,8 @@
 
 (def t-and-example-2 '[T [& C D]])
 (def result-t-and-example-2 '([T C] [T D]) )
+
+;; tests
 
 (deftest TAnd-applied-test
   (is (= result-t-and-example-1 (TAnd t-and-example-1)))
