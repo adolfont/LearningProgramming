@@ -5,6 +5,7 @@
 	;; [SIGN [CONECTIVE subformulas]]
 ;; I am not representing atomic formulas yet...
 
+(ns analyticTableaux)
 
 (defn getsign [formula]
   "gets the sign of a signed formula"
