@@ -1,0 +1,45 @@
+    result_first_clause = value(head,valuation)
+    if result_first_clause == true do
+       value_formula(tail,valuation)
+    else
+       [result_first_clause |  value_formula(tail,valuation)]
+    end
+
+
+    # for x <- SatSolver.from_DIMACS_to_list("lib/uf50-02.cnf"), do: IO.inspect(x)
+
+    SatSolver.from_DIMACS_to_list("lib/uf50-02.cnf")
+    # for x <- sat_instance, do: IO.inspect(x)
+    |> SatSolver.dpll
+    |> IO.inspect
+
+    assert SatSolver.dpll(SatSolver.from_DIMACS_to_list("lib/uf20-01.cnf"))==
+      {true, [-13, -1, 9, 2, 8, 10, 15, 19, 14, -6, 11, 18, 17, -12, -16, -7, 20, -5, 3, 4]}
+
+      def next_value(formula,valuation) do
+       ((formula |> List.flatten |> Enum.uniq) -- valuation) |> List.first
+    #    List.first ((Enum.uniq List.flatten formula) -- valuation)
+      end
+
+
+      def dpll_or(formula,valuation,value) do
+    #    IO.puts "dpll_or formula valuation value"
+    #    IO.inspect formula
+    #    IO.inspect valuation
+    #    IO.inspect value
+        new_valuation = [value] ++ valuation
+        first_result = dpll_aux(value_formula(formula, new_valuation), new_valuation)
+        {result, _} = first_result
+        if result == true  do
+           first_result
+        else
+          new_valuation_2 = [-value] ++ valuation
+          second_result = dpll_aux(value_formula(formula, new_valuation_2), new_valuation_2)
+          {result_2, _} = second_result
+          if result_2 == true  do
+            second_result
+          else
+            {false, []}
+          end
+        end
+      end

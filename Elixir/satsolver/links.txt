@@ -1,0 +1,22 @@
+
+Explica como DPLL funciona melhor do que q Wikipédia
+http://www.cs.umd.edu/~micinski/posts/2012-09-22-efficient-sat-solving.html
+
+SAT SOLVER ERLANG ELIXIR
+http://dist-sat.blogspot.com.br/
+
+http://blog.ezyang.com/2010/08/tour-of-preach-distributed-erlang/
+
+https://news.ycombinator.com/item?id=1684620
+I wrote a distributed sat-solver in Erlang
+
+https://github.com/mcarmosi/ur-sat
+https://github.com/fmstephe/Erlang-Sat-Solver
+
+
+https://github.com/roehst/elisat
+
+http://www.cs.um.edu.mt/~svrg/FormalMethods/2012-2013/Erlang.pdf
+
+CPU stats
+http://blog.scoutapp.com/articles/2015/02/24/understanding-linuxs-cpu-stats
