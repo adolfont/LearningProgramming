@@ -1,4 +1,5 @@
 # Verificador de Sintaxe para Lógica Clássica Proposicional em Elixir
+# Atualização em 2018: este código foi escrito quando eu estava iniciando em Elixir e não reflete boas práticas da linguagem.
 
 # Como executar:
 # > elixir sintaxe.exs
