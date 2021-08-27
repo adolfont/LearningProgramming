@@ -1,3 +1,9 @@
+# Task:
+# Write a program that reads an answer key for a test with Q questions.
+# After that, read, for N students, their Q answers.
+# Finally, calculate how many questions they got right,
+# writing for each student the number of right answers.
+
 defmodule Grades do
   def run(number_of_questions, number_of_students) do
     IO.puts("Type Answer Key")
@@ -50,4 +56,6 @@ defmodule Grades do
   end
 end
 
-Grades.run(5, 5)
+# Runs the program for a test with 5 questions
+# and a group of 3 students
+Grades.run(5, 3)
