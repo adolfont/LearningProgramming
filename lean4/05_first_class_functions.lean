@@ -1,3 +1,5 @@
+-- Source: https://leanprover.github.io/lean4/doc/tour.html
+
 -- Lean has first-class functions.
 -- `twice` takes two arguments `f` and `a` where
 -- `f` is a function from natural numbers to natural numbers, and

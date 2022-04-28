@@ -1,3 +1,5 @@
+-- Source: https://leanprover.github.io/lean4/doc/whatIsLean.html
+
 -- Defines a function that takes a name and produces a greeting.
 def getGreeting (name : String) := s!"Hello, {name}! Isn't Lean great?"
 
@@ -13,3 +15,4 @@ def main : IO Unit :=
   -- Print the list of greetings
   for greeting in greetings do
     IO.println greeting
+
