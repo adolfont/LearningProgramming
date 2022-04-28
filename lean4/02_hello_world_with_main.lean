@@ -2,8 +2,4 @@ def main : IO Unit :=
   IO.println "Hello, world!"
 
 
-#eval main
-
-#eval 2+2
-
-#eval println! "ADOLFO"
+-- lean <02_hello_world_with_main.lean> --run
