@@ -1,10 +1,6 @@
-def implication (a b : Bool) :=
-match b with
-| true => true
-| false => match a with 
-            |  false => true
-            |  true => false
-
+def implication : Bool → Bool → Bool
+| false, _ => true
+| true, b => b
 
 #eval println! "true or false"
 #eval or true false 
@@ -21,3 +17,5 @@ match b with
 #eval implication false true
 #eval println! "false -> false"
 #eval implication false false
+
+
