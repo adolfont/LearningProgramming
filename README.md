@@ -15,6 +15,7 @@ The following are the programming languages I am learning:
 * [Arduino](http://www.arduino.cc/) -- `An open-source electronics prototyping platform based on flexible, easy-to-use hardware and software.`
 * [Lean 4](https://leanprover.github.io/) -- "Lean is a functional programming language that makes it easy to write correct and maintainable code. You can also use Lean as an interactive theorem prover."
 * [Elixir](http://elixir-lang.org/).
+* Smalltalk
 
 And this is a unit test framework:
 
